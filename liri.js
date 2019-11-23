@@ -41,15 +41,8 @@ function concertThis() {
         })
 };
 
-var venueName = "";
-// console.log("Venue Name: " + res.venue.name);
-var venueLocation = "";
-// console.log("Location: " + res.venue.city)
-var eventDate = moment().format("MM-DD-YYYY");
-// console.log("Date: " + (res.datetime).moment().format("MM-DD-YYYY"))
-
 // TEST
-console.log(queryBIT);
+// console.log(queryBIT);
 
 /************************************
 SPOTIFY
