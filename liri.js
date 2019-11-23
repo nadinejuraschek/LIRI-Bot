@@ -36,7 +36,9 @@ var queryBIT = "https://rest.bandsintown.com/artists/" + fullSearchFor + "/event
 function concertThis() {
     axios.get(queryBIT)
         .then(function (res) {
-            console.log(res.data[0].artist.name + " is playing next at " + res.data[0].venue.name + " in " + res.data[0].venue.city + " on " + res.data[0].datetime);
+            var date = moment(res.data[0].datetime).format("MM/DD/YYYY");
+            console.log(res.data[0].artist.name + " is playing next at " + res.data[0].venue.name + " in " + res.data[0].venue.city + " on " + date + ".");
+            //add text to log.txt
         })
 };
 
