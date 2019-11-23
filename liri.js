@@ -37,11 +37,8 @@ var queryBIT = "https://rest.bandsintown.com/artists/" + fullSearchFor + "/event
 function concertThis() {
     axios.get(queryBIT)
         .then(function (res) {
-            console.log(res.artist.name + "is playing next at " + res.venue.name + " in " + res.venue.city + " on " + res.datetime);
+            console.log(res.data[0].artist.name + " is playing next at " + res.data[0].venue.name + " in " + res.data[0].venue.city + " on " + res.data[0].datetime);
         })
-        .catch(function (err) {
-            if (err) { }
-        });
 };
 
 var venueName = "";
@@ -52,7 +49,7 @@ var eventDate = moment().format("MM-DD-YYYY");
 // console.log("Date: " + (res.datetime).moment().format("MM-DD-YYYY"))
 
 // TEST
-// console.log(queryBIT);
+console.log(queryBIT);
 
 /************************************
 SPOTIFY
