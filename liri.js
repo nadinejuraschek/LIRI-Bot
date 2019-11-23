@@ -61,23 +61,6 @@ var queryMovie = "http://www.omdbapi.com/?t=" + fullSearchFor + "&y=&plot=short&
 // TEST
 console.log(queryMovie);
 
-var movieTitle = "";
-// console.log("Movie Title: " + res.data.Title)
-var releaseYear = "";
-// console.log("Release Year: " + res.data.Year)
-var imdbRating = "";
-// console.log("imdb Rating: " + res.data.imdbRating)
-var rottenTomatoesRating = "";
-// console.log("")
-var producerCountry = "";
-// console.log("Country: " + res.data.Country)
-var movieLanguage = "";
-// console.log("Language: " + res.data.Language)
-var moviePlot = "";
-// console.log("Plot: " + res.data.Plot)
-var actors = "";
-// console.log("Actors: " + res.data.Actors)
-
 /************************************
 DO WHAT IT SAYS
 ************************************/
@@ -101,31 +84,40 @@ if (command === "concert-this") {
     console.log("Your command is: " + command);
     axios.get(queryMovie)
         .then(function (res) {
-            console.log("The movie you are searching for is called '" + res.data.Title + "'.");
-            console.log("It was released in " + res.data.Year + ".")
-            console.log("Its imdb Rating is " + res.data.imdbRating + " and Rotten Tomatoes score is " + res.data.ratings[2].value + ".")
-            console.log("The movie was produced in " + res.data.Country + " and can be watched in these languages: " + res.data.language + ".")
-            console.log("Plot: " + res.data.Plot)
-            console.log("Actors: " + res.data.Actors)
+            if (fullSearchFor === undefined) {
+                fullSearchFor = "Mr.+Nobody";
+                axios.get(queryMovie)
+                    .then(function (res) {
+                        console.log("The movie you searched for is called '" + res.data.Title + "'.");
+                        console.log("It was released in " + res.data.Year + ".")
+                        console.log("Its imdb Rating is " + res.data.imdbRating + " and Rotten Tomatoes score is " + res.data.Ratings[1].Value + ".")
+                        console.log("The movie was produced in " + res.data.Country + " and can be watched in these languages: " + res.data.Language + ".")
+                        console.log("Here is a summary of the plot: " + res.data.Plot)
+                        console.log("Actors in this movie are: " + res.data.Actors)
+                    })
+            } else {
+                console.log("The movie you searched for is called '" + res.data.Title + "'.");
+                console.log("It was released in " + res.data.Year + ".")
+                console.log("Its imdb Rating is " + res.data.imdbRating + " and Rotten Tomatoes score is " + res.data.Ratings[1].Value + ".")
+                console.log("The movie was produced in " + res.data.Country + " and can be watched in these languages: " + res.data.Language + ".")
+                console.log("Here is a summary of the plot: " + res.data.Plot)
+                console.log("Actors in this movie are: " + res.data.Actors)
+            }
         })
         .catch(function (err) {
-            fullSearchFor = "Mr.+Nobody";
-            axios.get(queryMovie)
-                .then(function (res) {
-                    console.log("The movie you are searching for is called '" + res.data.Title + "'.");
-                    console.log("It was released in " + res.data.Year + ".")
-                    console.log("Its imdb Rating is " + res.data.imdbRating + " and Rotten Tomatoes score is " + res.data.ratings[2].value + ".")
-                    console.log("The movie was produced in " + res.data.Country + " and can be watched in these languages: " + res.data.language + ".")
-                    console.log("Plot: " + res.data.Plot)
-                    console.log("Actors: " + res.data.Actors)
-                })
+
         });
 } else if (command === "spotify-this-song") {
+    console.log("Your command is: " + command);
     spotify.search({ type: 'track', query: fullSearchFor }, function (err, data) {
         if (err) {
             return console.log('Error occurred: ' + err);
         } else if (fullSearchFor === "") {
-
+            fullSearchFor = "The+Sign";
+            var songs = data.tracks.items;
+            console.log("The song you searched for is called '" + songs[0].name + "'.");
+            console.log("It is performed by '" + songs[0].artists[0].name + "' and can be found on the album '" + songs[0].album.name + "'.");
+            console.log("Listen to a preview on Spotify: " + songs[0].external_urls.spotify);
         } else {
             var songs = data.tracks.items;
             console.log("The song you searched for is called '" + songs[0].name + "'.");
@@ -134,8 +126,3 @@ if (command === "concert-this") {
         }
     });
 }
-
-// if command === "movie-this"
-// axios.get(queryMovie).then(function(res) {console.log("The title of the movie is: " + res.data.Title); ...}).catch(function(err) {if (err || command === "") {fullSearchFor = "Mr.+Nobody"; axios.get(queryMovie).then(function(res) {console.log(...)}).catch(function(err) {if (err)console.log()}});
-
-// if 
