@@ -33,7 +33,6 @@ BANDS IN TOWN
 ************************************/
 /** CONCERT-THIS with Artist/Band Name **/
 var queryBIT = "https://rest.bandsintown.com/artists/" + fullSearchFor + "/events?app_id=" + keys.bandsintown;
-
 function concertThis() {
     axios.get(queryBIT)
         .then(function (res) {
@@ -51,53 +50,30 @@ SPOTIFY
 var spotify = new Spotify(keys.spotify);
 
 function spotifyThisSong() {
+    console.log("spotify this song works");
     spotify.search({ type: 'track', query: fullSearchFor }, function (err, data) {
-        if (err) {
-            return console.log('Error occurred: ' + err);
-        } else if (fullSearchFor === "") {
-            fullSearchFor = "The+Sign";
-            var songs = data.tracks.items;
-            console.log("The song you searched for is called '" + songs[0].name + "'.");
-            console.log("It is performed by '" + songs[0].artists[0].name + "' and can be found on the album '" + songs[0].album.name + "'.");
-            console.log("Listen to a preview on Spotify: " + songs[0].external_urls.spotify);
-        } else {
-            var songs = data.tracks.items;
-            console.log("The song you searched for is called '" + songs[0].name + "'.");
-            console.log("It is performed by '" + songs[0].artists[0].name + "' and can be found on the album '" + songs[0].album.name + "'.");
-            console.log("Listen to a preview on Spotify: " + songs[0].external_urls.spotify);
-        }
+        var songs = data.tracks.items;
+        console.log("The song you searched for is called '" + songs[0].name + "'.");
+        console.log("It is performed by '" + songs[0].artists[0].name + "' and can be found on the album '" + songs[0].album.name + "'.");
+        console.log("Listen to a preview on Spotify: " + songs[0].external_urls.spotify);
     });
-}
+};
 
 /************************************
 OMDB
 ************************************/
 /** MOVIE-THIS with Movie Name **/
 var queryMovie = "http://www.omdbapi.com/?t=" + fullSearchFor + "&y=&plot=short&apikey=" + keys.omdb;
-
 function movieThis() {
     axios.get(queryMovie)
         .then(function (res) {
-            if (fullSearchFor === undefined) {
-                fullSearchFor = "Mr.+Nobody";
-                axios.get(queryMovie)
-                    .then(function (res) {
-                        console.log("The movie you searched for is called '" + res.data.Title + "'.");
-                        console.log("It was released in " + res.data.Year + ".")
-                        console.log("Its imdb Rating is " + res.data.imdbRating + " and Rotten Tomatoes score is " + res.data.Ratings[1].Value + ".")
-                        console.log("The movie was produced in " + res.data.Country + " and can be watched in these languages: " + res.data.Language + ".")
-                        console.log("Here is a summary of the plot: " + res.data.Plot)
-                        console.log("Actors in this movie are: " + res.data.Actors)
-                    })
-            } else {
-                console.log("The movie you searched for is called '" + res.data.Title + "'.");
-                console.log("It was released in " + res.data.Year + ".")
-                console.log("Its imdb Rating is " + res.data.imdbRating + " and Rotten Tomatoes score is " + res.data.Ratings[1].Value + ".")
-                console.log("The movie was produced in " + res.data.Country + " and can be watched in these languages: " + res.data.Language + ".")
-                console.log("Here is a summary of the plot: " + res.data.Plot)
-                console.log("Actors in this movie are: " + res.data.Actors)
-            }
-        })
+            console.log("The movie you searched for is called '" + res.data.Title + "'.");
+            console.log("It was released in " + res.data.Year + ".")
+            console.log("Its imdb Rating is " + res.data.imdbRating + " and Rotten Tomatoes score is " + res.data.Ratings[1].Value + ".")
+            console.log("The movie was produced in " + res.data.Country + " and can be watched in these languages: " + res.data.Language + ".")
+            console.log("Here is a summary of the plot: " + res.data.Plot)
+            console.log("Actors in this movie are: " + res.data.Actors)
+        });
 };
 
 // TEST
@@ -133,6 +109,6 @@ function runLIRI() {
         console.log("Your command is: " + command);
         doWhatItSays();
     }
-}
+};
 
 runLIRI();
