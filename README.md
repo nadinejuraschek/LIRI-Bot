@@ -16,13 +16,9 @@ LIRI can...
 
 ## How to Run the App
 
-1. Type 
-```
-node liri.js
-```
-to start the application in your terminal.
+Start LIRI with Node.js, add a command and search term.
 
-2. Add a command and a search term. To search for...
+Search for:
 
 * upcoming concert details:
     ```
