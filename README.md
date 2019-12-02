@@ -1,27 +1,54 @@
 # LIRI-Bot
 
-LIRI (Language Interpretation and Recognition Interface) is a command line node app that takes in parameters and gives back data.
+LIRI (Language Interpretation and Recognition Interface) is a command line Node.js app that takes in parameters and gives back data.
 
 ## What It Does
 
-Clearly state the problem the app is trying to solve (i.e. what is it doing and why)
+LIRI can...
 
-## Organization
+* search the [Bands In Town API](https://artists.bandsintown.com/support/bandsintown-api) for a specific artist's or band's next concert date and location.
 
-Give a high-level overview of how the app is organized
+* search the [Spotify API](https://developer.spotify.com/documentation/web-api/) for a specific song's artist and album name, as well as a preview on Spotify.
+
+* search the [OMDB API](http://github.com) for a specific movie's full title, release year, IMDB and Rotten Tomatoes rating, country, language, actors, and short plot summary.
+
+* use an external .txt file to perform pre-written tasks.
 
 ## How to Run the App
 
-Give start-to-finish instructions on how to run the app
+1. Type 
+```
+node liri.js
+```
+to start the application in your terminal.
 
-## Screenshots, Videos
+2. Add a command and a search term. To search for...
 
-Include screenshots, gifs or videos of the app functioning
+* upcoming concert details:
+    ```
+    node liri.js concert-this <'artist/band name'>
+    ```
+
+* song information and previews:
+    ```
+    node liri.js spotify-this-song <'song name'>
+    ```
+
+*  movie information:
+    ```
+    node liri.js movie-this <'movie title'>
+    ```
+
+* pre-written search terms:
+    ```
+    node liri.js do-what-it-says
+    ```
 
 ## Technologies
 
-Clearly list the technologies used in the app
-
-##
-
-State your role in the app development
+* JavaScript
+* Node.js with 
+    * dotenv
+    * fs
+    * axios
+    * moment

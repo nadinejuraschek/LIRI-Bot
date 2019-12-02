@@ -26,13 +26,14 @@ for (var i = 3; i < nodeArgv.length; i++) {
 }
 // TEST
 // console.log(nodeArgv.length);
-console.log(fullSearchFor);
+// console.log(fullSearchFor);
 
 /************************************
 BANDS IN TOWN
 ************************************/
 /** CONCERT-THIS with Artist/Band Name **/
 var queryBIT = "https://rest.bandsintown.com/artists/" + fullSearchFor + "/events?app_id=" + keys.bandsintown;
+
 function concertThis() {
     if (fullSearchFor === "") {
         queryBIT = "https://rest.bandsintown.com/artists/" + "Celine+Dion" + "/events?app_id=" + keys.bandsintown;
@@ -40,12 +41,16 @@ function concertThis() {
             .then(function (res) {
                 var date = moment(res.data[0].datetime).format("MM/DD/YYYY");
                 console.log(res.data[0].artist.name + " is playing next at " + res.data[0].venue.name + " in " + res.data[0].venue.city + " on " + date + ".");
+
+                // log to log.txt
             });
     } else {
         axios.get(queryBIT)
             .then(function (res) {
                 var date = moment(res.data[0].datetime).format("MM/DD/YYYY");
                 console.log(res.data[0].artist.name + " is playing next at " + res.data[0].venue.name + " in " + res.data[0].venue.city + " on " + date + ".");
+
+                // log to log.txt
             });
     }
 };
@@ -66,6 +71,8 @@ function spotifyThisSong() {
             console.log("The song you searched for is called '" + songs[0].name + "'.");
             console.log("It is performed by '" + songs[0].artists[0].name + "' and can be found on the album '" + songs[0].album.name + "'.");
             console.log("Listen to a preview on Spotify: " + songs[0].external_urls.spotify);
+
+            // log to log.txt
         });
     } else {
         spotify.search({ type: 'track', query: fullSearchFor }, function (err, data) {
@@ -73,6 +80,8 @@ function spotifyThisSong() {
             console.log("The song you searched for is called '" + songs[0].name + "'.");
             console.log("It is performed by '" + songs[0].artists[0].name + "' and can be found on the album '" + songs[0].album.name + "'.");
             console.log("Listen to a preview on Spotify: " + songs[0].external_urls.spotify);
+
+            // log to log.txt
         });
     }
 };
@@ -82,6 +91,7 @@ OMDB
 ************************************/
 /** MOVIE-THIS with Movie Name **/
 var queryMovie = "http://www.omdbapi.com/?t=" + fullSearchFor + "&y=&plot=short&apikey=" + keys.omdb;
+
 function movieThis() {
     if (fullSearchFor === "") {
         queryMovie = "http://www.omdbapi.com/?t=" + "Mr.+Nobody" + "&y=&plot=short&apikey=" + keys.omdb;
@@ -93,6 +103,8 @@ function movieThis() {
                 console.log("The movie was produced in " + res.data.Country + " and can be watched in these languages: " + res.data.Language + ".")
                 console.log("Here is a summary of the plot: " + res.data.Plot)
                 console.log("Actors in this movie are: " + res.data.Actors)
+
+                // log to log.txt
             });
     } else {
         axios.get(queryMovie)
@@ -103,6 +115,8 @@ function movieThis() {
                 console.log("The movie was produced in " + res.data.Country + " and can be watched in these languages: " + res.data.Language + ".")
                 console.log("Here is a summary of the plot: " + res.data.Plot)
                 console.log("Actors in this movie are: " + res.data.Actors)
+
+                // log to log.txt
             });
     }
 };
@@ -120,6 +134,8 @@ function doWhatItSays() {
         command = txt[0];
         fullSearchFor = txt[1];
         runLIRI();
+
+        // log to log.txt
     });
 }
 
