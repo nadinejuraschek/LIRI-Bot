@@ -24,20 +24,40 @@ Search for:
     ```
     node liri.js concert-this <'artist/band name'>
     ```
+    ```
+    <video width="320" height="240" controls>
+        <source src="LIRI_concert-this.mp4" type="video/mp4">
+    </video>
+    ```
 
 * song information and previews:
     ```
     node liri.js spotify-this-song <'song name'>
+    ```
+    ```
+    <video width="320" height="240" controls>
+        <source src="LIRI_spotify-this-song.mp4" type="video/mp4">
+    </video>
     ```
 
 *  movie information:
     ```
     node liri.js movie-this <'movie title'>
     ```
+    ```
+    <video width="320" height="240" controls>
+        <source src="LIRI_movie-this.mp4" type="video/mp4">
+    </video>
+    ```
 
 * pre-written search terms:
     ```
     node liri.js do-what-it-says
+    ```
+    ```
+    <video width="320" height="240" controls>
+        <source src="LIRI_do-what-it-says.mp4" type="video/mp4">
+    </video>
     ```
 
 ## Technologies
