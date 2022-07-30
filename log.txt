@@ -42,3 +42,21 @@ The movie was produced in United States and can be watched in these languages: E
 Actors in this movie are: Stephanie Beatriz, María Cecilia Botero, John Leguizamo.
 Here is a summary of the plot:
 A Colombian teenage girl has to face the frustration of being the only member of her family without magical powers.
+
+=============== MOVIE-THIS ===============
+The movie you searched for is called 'The Avengers'.
+It was released in 2012.
+Its imdb Rating is 8.0 and Rotten Tomatoes score is 91%.
+The movie was produced in United States and can be watched in these languages: English, Russian, Hindi.
+Actors in this movie are: Robert Downey Jr., Chris Evans, Scarlett Johansson.
+Here is a summary of the plot:
+Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.
+
+=============== MOVIE-THIS ===============
+The movie you searched for is called 'Spider-Man'.
+It was released in 2002.
+Its imdb Rating is 7.4 and Rotten Tomatoes score is 90%.
+The movie was produced in United States and can be watched in these languages: English.
+Actors in this movie are: Tobey Maguire, Kirsten Dunst, Willem Dafoe.
+Here is a summary of the plot:
+After being bitten by a genetically-modified spider, a shy teenager gains spider-like abilities that he uses to fight injustice as a masked superhero and face a vengeful enemy.
