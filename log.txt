@@ -24,3 +24,21 @@ Listen to a preview on Spotify: https://open.spotify.com/track/6ocbgoVGwYJhOv1Gg
 The song you searched for is called "Uptown Funk (feat. Bruno Mars)".
 It is performed by "Mark Ronson" and can be found on the album Uptown Special.
 Listen to a preview on Spotify: https://open.spotify.com/track/32OlwWuMpZ6b0aN2RZOeMS
+
+=============== MOVIE-THIS ===============
+The movie you searched for is called 'Hocus Pocus 2'.
+It was released in 2022.
+Its imdb Rating is N/A and Rotten Tomatoes score is undefined.
+The movie was produced in United States and can be watched in these languages: English.
+Actors in this movie are: Bette Midler, Sarah Jessica Parker, Kathy Najimy.
+Here is a summary of the plot:
+Three young women accidentally bring back the Sanderson Sisters to modern day Salem and must figure out how to stop the child-hungry witches from wreaking havoc on the world.
+
+=============== MOVIE-THIS ===============
+The movie you searched for is called 'Encanto'.
+It was released in 2021.
+Its imdb Rating is 7.2 and Rotten Tomatoes score is 75/100.
+The movie was produced in United States and can be watched in these languages: English, Spanish.
+Actors in this movie are: Stephanie Beatriz, María Cecilia Botero, John Leguizamo.
+Here is a summary of the plot:
+A Colombian teenage girl has to face the frustration of being the only member of her family without magical powers.
